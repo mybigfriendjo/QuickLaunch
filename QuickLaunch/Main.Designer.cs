@@ -52,6 +52,8 @@
             this.textLaunch.Name = "textLaunch";
             this.textLaunch.Size = new System.Drawing.Size(249, 20);
             this.textLaunch.TabIndex = 0;
+            this.textLaunch.TextChanged += new System.EventHandler(this.textLaunch_TextChanged);
+            this.textLaunch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textLaunch_KeyDown);
             // 
             // buttonLaunch
             // 
@@ -76,6 +78,7 @@
             this.MinimizeBox = false;
             this.Name = "Main";
             this.Text = "QuickLaunch";
+            this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Main_KeyDown);
             this.tableLayoutMain.ResumeLayout(false);
