@@ -112,18 +112,6 @@
     <None Include="Resources\add.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\folder.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\folder_add.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\folder_delete.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\folder_go.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\page_white.png" />
   </ItemGroup>
   <ItemGroup>
@@ -134,6 +122,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\page_white_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\package.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\package_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\package_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\package_go.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

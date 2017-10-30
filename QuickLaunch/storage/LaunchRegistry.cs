@@ -32,6 +32,7 @@ namespace QuickLaunch.storage {
                 if (entry.Path.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)) {
                     temp.Add(entry);
                 }
+                // TODO: recursion through children
             }
             return temp;
         }

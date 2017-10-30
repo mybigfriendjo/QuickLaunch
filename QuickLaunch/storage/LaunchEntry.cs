@@ -1,5 +1,17 @@
-﻿namespace QuickLaunch.storage {
+﻿using System.Collections.Generic;
+
+namespace QuickLaunch.storage {
     public class LaunchEntry {
+        public List<LaunchEntry> Children {
+            get;
+            set;
+        }
+
+        public LaunchEntry Parent {
+            get;
+            set;
+        }
+
         public string Name {
             get;
             set;
