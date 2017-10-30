@@ -92,6 +92,7 @@
             this.buttonAddCategory.Size = new System.Drawing.Size(24, 24);
             this.buttonAddCategory.TabIndex = 0;
             this.buttonAddCategory.UseVisualStyleBackColor = true;
+            this.buttonAddCategory.Click += new System.EventHandler(this.buttonAddCategory_Click);
             // 
             // buttonAddSubCategory
             // 
@@ -102,6 +103,7 @@
             this.buttonAddSubCategory.Size = new System.Drawing.Size(24, 24);
             this.buttonAddSubCategory.TabIndex = 1;
             this.buttonAddSubCategory.UseVisualStyleBackColor = true;
+            this.buttonAddSubCategory.Click += new System.EventHandler(this.buttonAddSubCategory_Click);
             // 
             // buttonDeleteCategory
             // 
@@ -112,6 +114,7 @@
             this.buttonDeleteCategory.Size = new System.Drawing.Size(24, 24);
             this.buttonDeleteCategory.TabIndex = 2;
             this.buttonDeleteCategory.UseVisualStyleBackColor = true;
+            this.buttonDeleteCategory.Click += new System.EventHandler(this.buttonDeleteCategory_Click);
             // 
             // tableLayoutEntries
             // 
@@ -139,6 +142,7 @@
             this.buttonAddEntry.Size = new System.Drawing.Size(24, 24);
             this.buttonAddEntry.TabIndex = 0;
             this.buttonAddEntry.UseVisualStyleBackColor = true;
+            this.buttonAddEntry.Click += new System.EventHandler(this.buttonAddEntry_Click);
             // 
             // buttonDeleteEntry
             // 
@@ -149,6 +153,7 @@
             this.buttonDeleteEntry.Size = new System.Drawing.Size(24, 24);
             this.buttonDeleteEntry.TabIndex = 1;
             this.buttonDeleteEntry.UseVisualStyleBackColor = true;
+            this.buttonDeleteEntry.Click += new System.EventHandler(this.buttonDeleteEntry_Click);
             // 
             // LaunchEntryList
             // 

@@ -12,6 +12,11 @@ namespace QuickLaunch.storage {
             set;
         }
 
+        public bool IsGroup {
+            get;
+            set;
+        }
+
         public string Name {
             get;
             set;

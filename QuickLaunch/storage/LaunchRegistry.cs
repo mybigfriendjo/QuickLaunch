@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -13,28 +14,51 @@ namespace QuickLaunch.storage {
         public static LaunchRegistry INSTANCE = new LaunchRegistry();
         private static readonly ByteComparer byteComparer = new ByteComparer();
 
-        private List<LaunchEntry> entries = new List<LaunchEntry>();
-        private Dictionary<int, byte[]> images = new Dictionary<int, byte[]>();
+        public readonly List<LaunchEntry> Entries = new List<LaunchEntry>();
+        private readonly Dictionary<int, byte[]> images = new Dictionary<int, byte[]>();
 
         private LaunchRegistry() { }
 
         public IEnumerable<LaunchEntry> Search(string searchTerm) {
-            List<LaunchEntry> temp = new List<LaunchEntry>();
-            foreach (LaunchEntry entry in entries) {
+            List<LaunchEntry> searchResult = new List<LaunchEntry>();
+            foreach (LaunchEntry entry in Entries) {
+                if (entry.IsGroup) {
+                    SearchChildren(searchResult, entry, searchTerm);
+                    continue;
+                }
                 if (entry.Name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)) {
-                    temp.Add(entry);
+                    searchResult.Add(entry);
                     continue;
                 }
                 if (entry.Tags.Any(tag => tag.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))) {
-                    temp.Add(entry);
+                    searchResult.Add(entry);
                     continue;
                 }
                 if (entry.Path.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)) {
-                    temp.Add(entry);
+                    searchResult.Add(entry);
                 }
-                // TODO: recursion through children
             }
-            return temp;
+            return searchResult;
+        }
+
+        private static void SearchChildren(ICollection<LaunchEntry> searchResult, LaunchEntry entry, string searchTerm) {
+            foreach (LaunchEntry child in entry.Children) {
+                if (child.IsGroup) {
+                    SearchChildren(searchResult, entry, searchTerm);
+                    continue;
+                }
+                if (child.Name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)) {
+                    searchResult.Add(entry);
+                    continue;
+                }
+                if (child.Tags.Any(tag => tag.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))) {
+                    searchResult.Add(entry);
+                    continue;
+                }
+                if (child.Path.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)) {
+                    searchResult.Add(entry);
+                }
+            }
         }
 
         public Image GetIconImage(int posInImageList) {
