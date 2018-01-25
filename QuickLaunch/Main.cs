@@ -24,7 +24,7 @@ namespace QuickLaunch {
             trayMenu.MenuItems.Add("Beenden", ExitApplication);
             trayIcon = new NotifyIcon {
                 Icon = Properties.Resources.lightningBolt,
-                Text = "Telefonbuch",
+                Text = "QuickLaunch",
                 ContextMenu = trayMenu
             };
             trayIcon.DoubleClick += trayIcon_DoubleClick;
